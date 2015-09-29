@@ -14,42 +14,68 @@ import java.util.ArrayList;
  */
 public class JamaiconScoresSubject implements Subject {
     private final ArrayList observers;
-    private int homeGoals;
-    private int awayGoals;
-    private String homeTeam;
-    private String awayTeam;
+    private int homeGoals = -1;
+    private int awayGoals = -1;
+    private String homeTeam = "No hay Equipo";
+    private String awayTeam = "No hay Equpo";
 
 
     public JamaiconScoresSubject(){
-        observers = new ArrayList();
+        observers = new ArrayList<Observer>();
     }
 
+
     @Override
-    public void registerObserver(Observer observer) {
+    public boolean registerObserver(Observer observer) {
+
+        int arrySize = observers.size();
         observers.add(observer);
+
+        if(observers.size() > arrySize)  return true;
+        else return false;
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public boolean removeObserver(Observer observer) {
+
+        int arrySize = observers.size();
         observers.remove(observers.indexOf(observer));
+
+        if(observers.size() < arrySize) return true;
+
+
+        else return false;
     }
 
     @Override
-    public void notifyObservers() {
-        for (Object observer1 : observers) {
-            Observer observer = (Observer) observer1;
+    public boolean notifyObservers() {
+        for (Object temp : observers) {
+            Observer observer = (Observer) temp;
             observer.scoreUpdate(this.homeTeam, this.awayTeam, this.homeGoals, this.awayGoals);
         }
+
+        return true;
     }
 
+    public boolean setScore( String home, String away, int hg, int ag){
+
+        String prevHome = homeTeam;
+        String prevAway = awayTeam;
+        int prevHg = homeGoals;
+        int prevAg = awayGoals;
 
 
-    public void setScore( String home, String away, int hg, int ag){
         this.homeTeam = home;
         this.awayTeam =  away;
         this.homeGoals = hg;
         this.awayGoals = ag;
+
         notifyObservers();
+
+        if(prevHome != this.homeTeam && prevAway != this.awayTeam && prevHg != this.homeGoals && prevAg != this.awayGoals)
+            return true;
+        else
+            return false;
     }
 
 }

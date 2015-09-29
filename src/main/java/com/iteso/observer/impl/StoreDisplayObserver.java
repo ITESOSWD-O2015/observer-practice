@@ -23,6 +23,7 @@ public class StoreDisplayObserver implements Observer, Displayable {
         this.name = storeName;
         scoresData1.registerObserver(this);
     }
+
     @Override
     public void display() {
         System.out.println(name + "- Latest score is:");
@@ -38,4 +39,5 @@ public class StoreDisplayObserver implements Observer, Displayable {
         this.awayGoals = awayGoals;
         display();
     }
+
 }
