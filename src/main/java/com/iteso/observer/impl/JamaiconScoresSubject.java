@@ -29,6 +29,7 @@ public class JamaiconScoresSubject implements Subject {
         observers.add(observer);
     }
 
+
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observers.indexOf(observer));
