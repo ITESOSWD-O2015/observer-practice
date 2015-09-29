@@ -9,4 +9,5 @@ package com.iteso.observer;
  */
 public interface Displayable {
     void display();
+
 }

@@ -1,5 +1,6 @@
 package com.iteso.observer;
 
+import com.iteso.observer.impl.JamaiconMobileApp;
 import com.iteso.observer.impl.StoreDisplayObserver;
 import com.iteso.observer.impl.JamaiconScoresSubject;
 
@@ -15,9 +16,11 @@ class NewsStation {
         JamaiconScoresSubject jamaiconScoresSubject;
         jamaiconScoresSubject = new JamaiconScoresSubject();
 
-        StoreDisplayObserver storeDisplayObserver = new StoreDisplayObserver(jamaiconScoresSubject, "Tienda 1");
+        StoreDisplayObserver storeDisplayObserver = new StoreDisplayObserver(jamaiconScoresSubject, " Tienda 1");
         StoreDisplayObserver storeDisplayObserver2 = new StoreDisplayObserver(jamaiconScoresSubject, " Tienda 2");
 
+        JamaiconMobileApp jamaiconMobileApp = new JamaiconMobileApp(jamaiconScoresSubject, " Mobile 1");
+        JamaiconMobileApp jamaiconMobileApp1 = new JamaiconMobileApp(jamaiconScoresSubject, " Mobile 2");
 
         jamaiconScoresSubject.setScore("Atletico Lagos", "Tennis Tonatiuh", 8, 1);
         jamaiconScoresSubject.setScore("Deportivo Arnoldos", "Aclas", 0, 0);

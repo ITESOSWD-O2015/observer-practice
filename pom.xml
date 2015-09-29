@@ -22,7 +22,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>strategy-practice</finalName>
+    <finalName>observer-practice</finalName>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -39,14 +39,9 @@
             <packageBranchRate>85</packageBranchRate>
             <regexes>
               <regex>
-                <pattern>com.iteso.strategy.*</pattern>
+                <pattern>com.iteso.observer.*</pattern>
                 <branchRate>90</branchRate>
                 <lineRate>80</lineRate>
-              </regex>
-              <regex>
-                <pattern>com.iteso.strategy2.*</pattern>
-                <branchRate>40</branchRate>
-                <lineRate>30</lineRate>
               </regex>
             </regexes>
           </check>
