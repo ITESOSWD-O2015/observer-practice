@@ -39,7 +39,7 @@
             <packageBranchRate>85</packageBranchRate>
             <regexes>
               <regex>
-                <pattern>com.iteso.observer.*</pattern>
+                <pattern>observer.*</pattern>
                 <branchRate>90</branchRate>
                 <lineRate>80</lineRate>
               </regex>

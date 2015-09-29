@@ -24,17 +24,14 @@ public class JamaiconScoresSubject implements Subject {
         observers = new ArrayList();
     }
 
-    @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
     }
 
-    @Override
     public void removeObserver(Observer observer) {
         observers.remove(observers.indexOf(observer));
     }
 
-    @Override
     public void notifyObservers() {
         for (Object observer1 : observers) {
             Observer observer = (Observer) observer1;
