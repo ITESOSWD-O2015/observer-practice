@@ -23,14 +23,13 @@ public class StoreDisplayObserver implements Observer, Displayable {
         this.name = storeName;
         scoresData1.registerObserver(this);
     }
-    @Override
+
     public void display() {
         System.out.println(name + "- Latest score is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
     }
 
-    @Override
     public void scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
         this.homeTeam = home;
         this.awayTeam = away;
