@@ -9,4 +9,5 @@ package com.iteso.observer;
  */
 public interface Observer {
     void scoreUpdate(String home, String away, int homeGoals, int awayGoals);
+
 }
