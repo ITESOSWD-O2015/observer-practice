@@ -1,24 +1,20 @@
 package com.iteso.observer.impl;
 
 import com.iteso.observer.Displayable;
-import com.iteso.observer.Subject;
 import com.iteso.observer.Observer;
+import com.iteso.observer.Subject;
 
 /**
- * Created with IntelliJ IDEA.
- * User: rvillalobos
- * Date: 8/14/13
- * Time: 3:15 PM
- * To change this template use File | Settings | File Templates.
+ * Created by Carlos on 29/09/2015.
  */
-public class StoreDisplayObserver implements Observer, Displayable {
+public class MobileAppObserver  implements Observer, Displayable {
     private String homeTeam;
     private String awayTeam;
     private int homeGoals;
     private int awayGoals;
     private String name;
 
-    public StoreDisplayObserver(Subject scoresData, String storeName){
+    public MobileAppObserver(Subject scoresData, String storeName){
         Subject scoresData1 = scoresData;
         this.name = storeName;
         scoresData1.registerObserver(this);
