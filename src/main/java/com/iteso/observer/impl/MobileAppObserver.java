@@ -11,7 +11,6 @@ import com.iteso.observer.Observer;
  * Time: 3:15 PM
  * To change this template use File | Settings | File Templates.
  */
-
 /*public class StoreDisplayObserver implements Observer, Displayable {
     private String homeTeam;
     private String awayTeam;
@@ -48,18 +47,18 @@ import com.iteso.observer.Observer;
 		public int awayGoals;
 		private int homeGoals;
 		private int awayGoals;
-		private String name;
+		private String tName;
 
 
 	public MobileAppObserver(Subject scoresData, String storeName) {
 		Subject scoresData1 = scoresData;
-		this.name = storeName;
+		this.tName = storeName;
 		scoresData1.registerObserver(this);
 	}
 
 
 	public void display() {
-	       	System.out.println(name + "- Latest score is:");
+	       	System.out.println(tName + "- Latest score is:");
         	System.out.println(localTeam + " (HOME) - " + homeGoals);
         	System.out.println(awayTeam + " (AWAY) - " + awayGoals);
     	}
