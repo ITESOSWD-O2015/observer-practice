@@ -2,6 +2,7 @@ package com.iteso.observer;
 
 import com.iteso.observer.impl.StoreDisplayObserver;
 import com.iteso.observer.impl.JamaiconScoresSubject;
+import com.iteso.observer.impl.MobileAppObserver
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +18,9 @@ class NewsStation {
 
         StoreDisplayObserver storeDisplayObserver = new StoreDisplayObserver(jamaiconScoresSubject, "Tienda 1");
         StoreDisplayObserver storeDisplayObserver2 = new StoreDisplayObserver(jamaiconScoresSubject, " Tienda 2");
-
+	
+	MobileAppObserver mobileAppObserver = new MobileAppObserver(mobileAppObserver, "Mobile 1");
+	MobileAppObserver mobileAppObserver = new MobileAppObserver(mobileAppObserver, "Mobile 2");
 
         jamaiconScoresSubject.setScore("Atletico Lagos", "Tennis Tonatiuh", 8, 1);
         jamaiconScoresSubject.setScore("Deportivo Arnoldos", "Aclas", 0, 0);
