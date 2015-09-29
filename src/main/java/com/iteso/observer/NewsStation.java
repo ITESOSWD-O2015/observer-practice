@@ -1,5 +1,6 @@
 package com.iteso.observer;
 
+import com.iteso.observer.impl.JamaiconMobileApp;
 import com.iteso.observer.impl.StoreDisplayObserver;
 import com.iteso.observer.impl.JamaiconScoresSubject;
 
@@ -22,6 +23,8 @@ class NewsStation {
         jamaiconScoresSubject.setScore("Atletico Lagos", "Tennis Tonatiuh", 8, 1);
         jamaiconScoresSubject.setScore("Deportivo Arnoldos", "Aclas", 0, 0);
         jamaiconScoresSubject.setScore("El Gallo mueblerias", "Surtidora Departamental", 2, 5);
+
+
 
     }
 }
