@@ -1,5 +1,4 @@
 package com.iteso.observer.impl;
-
 import com.iteso.observer.Displayable;
 import com.iteso.observer.Subject;
 import com.iteso.observer.Observer;
@@ -11,6 +10,7 @@ import com.iteso.observer.Observer;
  * Time: 3:15 PM
  * To change this template use File | Settings | File Templates.
  */
+
 public class StoreDisplayObserver implements Observer, Displayable {
     private String homeTeam;
     private String awayTeam;
