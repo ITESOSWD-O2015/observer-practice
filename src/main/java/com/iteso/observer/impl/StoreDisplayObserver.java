@@ -12,11 +12,11 @@ import com.iteso.observer.Observer;
  */
 
 public class StoreDisplayObserver implements Observer, Displayable {
-    private String homeTeam;
-    private String awayTeam;
-    private int homeGoals;
-    private int awayGoals;
-    private String name;
+    private String homeTeam = "No hay equipo 1";
+    private String awayTeam = "No hay equipo 2";
+    private String name = "No hay nombre";
+    private int homeGoals = -1;
+    private int awayGoals = -2;
 
     public StoreDisplayObserver(Subject scoresData, String storeName){
         Subject scoresData1 = scoresData;
@@ -25,19 +25,32 @@ public class StoreDisplayObserver implements Observer, Displayable {
     }
 
     @Override
-    public void display() {
+    public boolean display() {
         System.out.println(name + "- Latest score is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
+
+        return true;
     }
 
     @Override
-    public void scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
+    public boolean scoreUpdate(String home, String away, int hg, int ag) {
+
+        String prevHome = homeTeam;
+        String prevAway = awayTeam;
+        int prevHg = homeGoals;
+        int prevAg = awayGoals;
+
         this.homeTeam = home;
         this.awayTeam = away;
-        this.homeGoals = homeGoals;
-        this.awayGoals = awayGoals;
+        this.homeGoals = hg;
+        this.awayGoals = ag;
         display();
-    }
 
+        if(prevHome != this.homeTeam && prevAway != this.awayTeam && prevHg != this.homeGoals && prevAg != this.awayGoals)
+            return true;
+        else
+            return false;
+
+    }
 }

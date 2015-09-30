@@ -17,7 +17,7 @@ public class JamaiconScoresSubjectTest {
     boolean success;
 
     @Before
-    void setUp(){
+    public void setUp(){
         jamaiconScoresSubject = new JamaiconScoresSubject();
         success = false;
 
@@ -25,19 +25,19 @@ public class JamaiconScoresSubjectTest {
         jamaiconMobileApp = mock(com.iteso.observer.impl.JamaiconMobileApp.class);
     }
 
-
     /////////////////////////////////////
     ////// FOR DISPLAY OBSERVER TYPE ////
     /////////////////////////////////////
 
     @Test //Can register a display observer
-    void testRegisterAnObserverDisplay(){
+    public void testRegisterAnObserverDisplay(){
         success = jamaiconScoresSubject.registerObserver(storeDisplayObserver);
         assertEquals(true, success);
     }
 
     @Test //Can remove a display observer
-    void testRemoveAnObserverDisplay(){
+    public void testRemoveAnObserverDisplay(){
+        jamaiconScoresSubject.registerObserver(storeDisplayObserver);
         success = jamaiconScoresSubject.removeObserver(storeDisplayObserver);
         assertEquals(true, success);
     }
@@ -46,13 +46,14 @@ public class JamaiconScoresSubjectTest {
     //// FOR MOBILEAPP OBSERVER TYPE ////
     /////////////////////////////////////
     @Test
-    void testRegisterAnObserverApp(){
+    public void testRegisterAnObserverApp() {
         success = jamaiconScoresSubject.registerObserver(jamaiconMobileApp);
         assertEquals(true, success);
     }
 
     @Test
-    void testRemoveAnObserverApp(){
+    public void testRemoveAnObserverApp() {
+        jamaiconScoresSubject.registerObserver(jamaiconMobileApp);
         success = jamaiconScoresSubject.removeObserver(jamaiconMobileApp);
         assertEquals(true, success);
     }
@@ -61,12 +62,12 @@ public class JamaiconScoresSubjectTest {
     /////// FOR GLOBAL TESTING /////////
     ////////////////////////////////////
     @Test
-    void testSetScore(){
+    public void testSetScore() {
         success = jamaiconScoresSubject.setScore("Equipo 1", "Equipo 2", 10, 4);
         assertEquals(true, success);
     }
     @Test
-    void testNotifyObservers(){
+    public void testNotifyObservers(){
         success = jamaiconScoresSubject.notifyObservers();
         assertEquals(true, success);
     }

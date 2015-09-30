@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class JamaiconScoresSubject implements Subject {
     private final ArrayList observers;
     private int homeGoals = -1;
-    private int awayGoals = -1;
-    private String homeTeam = "No hay Equipo";
-    private String awayTeam = "No hay Equpo";
+    private int awayGoals = -2;
+    private String homeTeam = "No hay Equipo 1";
+    private String awayTeam = "No hay Equipo 2";
 
 
     public JamaiconScoresSubject(){
