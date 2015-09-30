@@ -19,22 +19,26 @@ public class StoreDisplayObserver implements Observer, Displayable {
     private String name;
 
     public StoreDisplayObserver(Subject scoresData, String storeName){
-        Subject scoresData1 = scoresData;
+        Subject scoresData2 = scoresData;
         this.name = storeName;
-        scoresData1.registerObserver(this);
+        scoresData2.registerObserver(this);
     }
 
-    public void display() {
+    public boolean display() {
         System.out.println(name + "- Latest score is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
+
+        return true;
     }
 
-    public void scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
+    public boolean scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
         this.homeTeam = home;
         this.awayTeam = away;
         this.homeGoals = homeGoals;
         this.awayGoals = awayGoals;
         display();
+
+        return true;
     }
 }

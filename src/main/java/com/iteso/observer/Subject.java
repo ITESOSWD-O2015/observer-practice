@@ -8,7 +8,7 @@ package com.iteso.observer;
  * To change this template use File | Settings | File Templates.
  */
 public interface Subject {
-    void registerObserver(Observer observer);
-    void removeObserver(Observer observer);
-    void notifyObservers();
+    public boolean registerObserver(Observer observer);
+    public boolean removeObserver(Observer observer);
+    public boolean notifyObservers();
 }

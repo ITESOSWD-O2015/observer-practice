@@ -8,5 +8,5 @@ package com.iteso.observer;
  * To change this template use File | Settings | File Templates.
  */
 public interface Observer {
-    void scoreUpdate(String home, String away, int homeGoals, int awayGoals);
+    boolean scoreUpdate(String home, String away, int homeGoals, int awayGoals);
 }
