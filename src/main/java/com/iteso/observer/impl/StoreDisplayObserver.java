@@ -1,8 +1,11 @@
 package com.iteso.observer.impl;
 
 import com.iteso.observer.Displayable;
+import com.iteso.observer.Scorer;
 import com.iteso.observer.Subject;
 import com.iteso.observer.Observer;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,33 +15,41 @@ import com.iteso.observer.Observer;
  * To change this template use File | Settings | File Templates.
  */
 public class StoreDisplayObserver implements Observer, Displayable {
+
+    private List<Scorer> scores;
     private String homeTeam;
     private String awayTeam;
     private int homeGoals;
     private int awayGoals;
-    private String name;
+    private Subject scoresData2;
 
-    public StoreDisplayObserver(Subject scoresData, String storeName){
-        Subject scoresData2 = scoresData;
-        this.name = storeName;
+    public StoreDisplayObserver(Subject scoresData){
+        this.scoresData2 = scoresData;
         scoresData2.registerObserver(this);
     }
 
-    public boolean display() {
-        System.out.println(name + "- Latest score is:");
+    public void display() {
+        System.out.println("- Latest score is:");
         System.out.println(homeTeam + " (HOME) - " + homeGoals);
         System.out.println(awayTeam + " (AWAY) - " + awayGoals);
 
-        return true;
+        //Hacemos un for each para desplegar los scores
+        for(Scorer scorer: scores){
+            System.out.println("Name: " + scorer.getPlayerName()+ "\nNumero: "+ scorer.getPlayerNumber()
+                    +"\nPosicion: " + scorer.getPlayerPosition()+ "\nEquipo: " + scorer.getPlayerTeam());
+
+        }
+
     }
 
-    public boolean scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
+
+
+    public void scoreUpdate(String home, String away, int homeGoals, int awayGoals, List<Scorer> scorer) {
         this.homeTeam = home;
         this.awayTeam = away;
         this.homeGoals = homeGoals;
         this.awayGoals = awayGoals;
+        this.scores = scorer;
         display();
-
-        return true;
     }
 }

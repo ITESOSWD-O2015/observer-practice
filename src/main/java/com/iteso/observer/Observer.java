@@ -1,5 +1,7 @@
 package com.iteso.observer;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rvillalobos
@@ -8,5 +10,5 @@ package com.iteso.observer;
  * To change this template use File | Settings | File Templates.
  */
 public interface Observer {
-    boolean scoreUpdate(String home, String away, int homeGoals, int awayGoals);
+   public void scoreUpdate(String home, String away, int homeGoals, int awayGoals, List<Scorer> scorer);
 }

@@ -1,8 +1,11 @@
 package com.iteso.observer.impl;
 
 import com.iteso.observer.Observer;
+import com.iteso.observer.Scorer;
 import com.iteso.observer.Subject;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -10,44 +13,42 @@ import com.iteso.observer.Subject;
  */
 public class JamaiconMobileApp implements Observer {
 
+    private List<Scorer> scorers;
     private String Local="";
     private String Visitor="";
     private int LocalGoals=-1;
     private int VisitorGoals=-1;
-    private String TeamName;
+    private Subject scoresData1;
 
 
-    public JamaiconMobileApp(Subject scoresData, String TeamAlias){
+    public JamaiconMobileApp(Subject scoresData){
         Subject scoresData1 = scoresData;
-        this.TeamName = TeamAlias;
         scoresData1.registerObserver(this);
     }
 
 
-    public boolean displayScore() {
-        System.out.println(TeamName + "- Latest score is:");
+    public void displayScore() {
+        System.out.println("- Latest score is:");
         System.out.println(Local + " (Local) - " + LocalGoals);
         System.out.println(Visitor + " (Visitante) - " + VisitorGoals);
 
-        return true;
+        //Hacemos un for each para desplegar los scores
+        for(Scorer scorer: scorers){
+            System.out.println("Name: " + scorer.getPlayerName()+ "\nNumero: "+ scorer.getPlayerNumber()
+                    +"\nPosicion: " + scorer.getPlayerPosition()+ "\nEquipo: " + scorer.getPlayerTeam());
+
+        }
     }
 
 
-    public boolean scoreUpdate(String home, String away, int homeGoals, int awayGoals) {
-
+    public void scoreUpdate(String home, String away, int homeGoals, int awayGoals, List<Scorer> scores) {
         this.Local = home;
         this.Visitor = away;
         this.LocalGoals = homeGoals;
         this.VisitorGoals = awayGoals;
+        this.scorers = scores;
         System.out.println("Si entre");
         displayScore();
-
-        if((home != null) && (away != null) && (homeGoals >= 0) && (awayGoals >= 0))
-            return true;
-
-        else
-            return false;
-
 
     }
 

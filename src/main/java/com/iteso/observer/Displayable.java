@@ -8,5 +8,5 @@ package com.iteso.observer;
  * To change this template use File | Settings | File Templates.
  */
 public interface Displayable {
-    boolean display();
+    public void display();
 }

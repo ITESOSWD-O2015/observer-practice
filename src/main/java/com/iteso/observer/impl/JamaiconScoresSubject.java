@@ -1,9 +1,11 @@
 package com.iteso.observer.impl;
 
+import com.iteso.observer.Scorer;
 import com.iteso.observer.Subject;
 import com.iteso.observer.Observer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 public class JamaiconScoresSubject implements Subject {
     private final ArrayList observers;
+    private List<Scorer> scorers;
     private int homeGoals=-2;
     private int awayGoals=-1;
     private String homeTeam="";
@@ -22,59 +25,36 @@ public class JamaiconScoresSubject implements Subject {
 
 
     public JamaiconScoresSubject(){
-
         observers = new ArrayList();
+        scorers = new ArrayList();
     }
 
 
-    public boolean registerObserver(Observer observer) {
-
-        if(observer != null){
-            observers.add(observer);
-            return true;
-        }
-        else
-            return false;
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
     }
 
 
-    public boolean removeObserver(Observer observer) {
-
-        if(observer != null){
+    public void removeObserver(Observer observer) {
             observers.remove(observers.indexOf(observer));
-            return true;
-        }
-
-        else return false;
     }
 
 
-    public boolean notifyObservers() {
+    public void notifyObservers() {
         for (Object observer1 : observers) {
             Observer observer = (Observer) observer1;
-            observer.scoreUpdate(this.homeTeam, this.awayTeam, this.homeGoals, this.awayGoals);
+            observer.scoreUpdate(this.homeTeam, this.awayTeam, this.homeGoals, this.awayGoals, this.scorers);
         }
-
-        return true;
     }
 
 
-
-    public boolean setScore( String home, String away, int hg, int ag){
-
-        if(home != null && away != null && hg>=0 && ag>=0){
+    public void setScore( String home, String away, int hg, int ag, List<Scorer> scorers){
             this.homeTeam = home;
             this.awayTeam =  away;
             this.homeGoals = hg;
             this.awayGoals = ag;
+            this.scorers = scorers;
             notifyObservers();
-            return true;
-        }
-
-        else return false;
-
-
-
 
     }
 
